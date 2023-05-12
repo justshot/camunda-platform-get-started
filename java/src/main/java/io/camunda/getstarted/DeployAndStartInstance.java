@@ -13,12 +13,12 @@ public class DeployAndStartInstance {
   public static void main(String[] args) {
     try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
       client.newDeployResourceCommand()
-          .addResourceFromClasspath("send-email.bpmn")
+          .addResourceFromClasspath("simple-user-task.bpmn")
           .send()
           .join();
 
       final ProcessInstanceEvent event = client.newCreateInstanceCommand()
-          .bpmnProcessId("send-email")
+          .bpmnProcessId("Process_6ada859e-b057-4e4c-b2e4-69c22dcb3c01")
           .latestVersion()
           .variables(Map.of("message_content", "Hello from the Java get started"))
           .send()
