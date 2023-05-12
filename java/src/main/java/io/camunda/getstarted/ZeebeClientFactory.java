@@ -20,7 +20,7 @@ public class ZeebeClientFactory {
               .getBrokers();
 
       int port = brokers.get(0).getPort();
-      System.out.println(String.format("{0}: port",port));
+      System.out.println(String.format("port:%0$d",port));
 
       return zeebeClient;
       //    return ZeebeClient.newCloudClientBuilder()
